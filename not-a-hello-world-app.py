@@ -35,7 +35,6 @@ def completed_vs_itinerary(completed, itinerary):
 def solve_it():
     with open(os.environ["DATA_FILE"], 'r') as f:
         data = json.loads(f.read())
-
     # with open("./input.json", 'r') as f:
     #     data = json.loads(f.read())
 
@@ -80,6 +79,7 @@ def solve_it():
     filtered_results = [route for route in all_possible_valid_routes if filter_invalid_options(route, itinerary)]
     answer = get_result(filtered_results)
 
+    # print(answer)
     with open(os.environ["RESULT_FILE"], 'w') as f:
         f.write(json.dumps(answer))
 

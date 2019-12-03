@@ -1,0 +1,22 @@
+PYTHON
+
+FROM python:3
+
+ADD not-a-hello-world-app.py /not-a-hello-world-app.py
+
+CMD [ "python", "./not-a-hello-world-app.py" ]
+
+
+JAVASCRIPT
+
+FROM node:10
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN yarn
+
+COPY . .
+
+CMD [ "node", "js-solution.js"]

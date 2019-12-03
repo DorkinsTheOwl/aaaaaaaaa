@@ -1,5 +1,11 @@
-FROM python:3
+FROM node:10
 
-ADD not-a-hello-world-app.py /not-a-hello-world-app.py
+WORKDIR /usr/src/app
 
-CMD [ "python", "./not-a-hello-world-app.py" ]
+COPY package*.json ./
+
+RUN yarn
+
+COPY . .
+
+CMD [ "node", "js-solution.js"]
